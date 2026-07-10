@@ -1,0 +1,95 @@
+{
+  "name": "obsidian-test-kit",
+  "version": "0.1.0",
+  "description": "Shared, tested Obsidian API stubs and jsdom setup for Vitest.",
+  "keywords": [
+    "obsidian",
+    "vitest",
+    "testing",
+    "stub",
+    "jsdom"
+  ],
+  "homepage": "https://github.com/chhoumann/obsidian-test-kit#readme",
+  "bugs": {
+    "url": "https://github.com/chhoumann/obsidian-test-kit/issues"
+  },
+  "license": "MIT",
+  "author": "Christian B. B. Houmann",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chhoumann/obsidian-test-kit.git"
+  },
+  "type": "module",
+  "sideEffects": [
+    "./dist/setup/*",
+    "./dist/matchers.*"
+  ],
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/stub.d.mts",
+      "default": "./dist/stub.mjs"
+    },
+    "./stub": {
+      "types": "./dist/stub.d.mts",
+      "default": "./dist/stub.mjs"
+    },
+    "./setup": {
+      "types": "./dist/setup/index.d.mts",
+      "default": "./dist/setup/index.mjs"
+    },
+    "./setup/dom": {
+      "types": "./dist/setup/dom.d.mts",
+      "default": "./dist/setup/dom.mjs"
+    },
+    "./setup/moment": {
+      "types": "./dist/setup/moment.d.mts",
+      "default": "./dist/setup/moment.mjs"
+    },
+    "./setup/globals": {
+      "types": "./dist/setup/globals.d.mts",
+      "default": "./dist/setup/globals.mjs"
+    },
+    "./setup/waapi": {
+      "types": "./dist/setup/waapi.d.mts",
+      "default": "./dist/setup/waapi.mjs"
+    },
+    "./matchers": {
+      "types": "./dist/matchers.d.mts",
+      "default": "./dist/matchers.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "tsdown"
+  },
+  "peerDependencies": {
+    "@testing-library/jest-dom": ">=6.0.0",
+    "vitest": ">=1.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@testing-library/jest-dom": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@types/node": "^24.0.0",
+    "jsdom": "^29.0.0",
+    "obsidian": "^1.13.1",
+    "tsdown": "^0.22.4",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.10"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@10.32.1"
+}
