@@ -60,6 +60,7 @@ function ensureIntersectionObserver(): void {
 	class MockIntersectionObserver implements IntersectionObserver {
 		readonly root: Element | Document | null = null;
 		readonly rootMargin: string;
+		readonly scrollMargin: string;
 		readonly thresholds: ReadonlyArray<number> = [0];
 
 		constructor(
@@ -67,6 +68,7 @@ function ensureIntersectionObserver(): void {
 			options?: IntersectionObserverInit,
 		) {
 			this.rootMargin = options?.rootMargin ?? "0px";
+			this.scrollMargin = options?.scrollMargin ?? "0px";
 		}
 
 		disconnect(): void {}
