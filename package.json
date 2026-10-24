@@ -82,9 +82,9 @@
   "devDependencies": {
     "@testing-library/dom": "^10.4.2",
     "@testing-library/jest-dom": "^7.0.1",
-    "@types/node": "^24.0.0",
+    "@types/node": "^22.20.5",
     "jsdom": "^30.1.3",
-    "obsidian": "^1.13.1",
+    "obsidian": "^1.14.4",
     "tsdown": "^0.23.1",
     "typescript": "^7.0.2",
     "vite": "^8.3.4",
