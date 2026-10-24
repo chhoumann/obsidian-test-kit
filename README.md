@@ -31,8 +31,9 @@ verified once, and shared.
 pnpm add -D obsidian-test-kit
 ```
 
-Peer dependencies: `vitest` (required) and `@testing-library/jest-dom`
-(optional - only needed if you use the `obsidian-test-kit/matchers` entry).
+Requires Node.js 22 or newer. Peer dependencies: `vitest` (required) and
+`@testing-library/jest-dom` (optional - only needed if you use the
+`obsidian-test-kit/matchers` entry; jest-dom 7 also needs `@testing-library/dom`).
 
 ## Quickstart
 
