@@ -33,6 +33,10 @@ updates:
     open-pull-requests-limit: 10
     cooldown:
       default-days: 7
+    ignore:
+      # @types/node tracks the engines floor (Node 22), not the newest Node.
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
     groups:
       dev-dependencies:
         dependency-type: development
