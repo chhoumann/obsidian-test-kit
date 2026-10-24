@@ -1,0 +1,48 @@
+version: 2
+# Grouped weekly updates, copied from chhoumann/obsidian-plugin-workflows
+# templates/dependabot.yml. Grouping keeps the SHA pins and dependency tree
+# fresh in a small number of PRs rather than one-per-bump. Commit prefixes are
+# Conventional Commit types: `ci` for Actions, `build` for package
+# dependencies. The cooldown holds back releases younger than 7 days, the
+# window in which compromised publishes are usually caught and pulled.
+updates:
+  # GitHub Actions across all workflows. Keeps SHA pins from rotting - a Node
+  # runtime deprecation slips in precisely when nothing watches these.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    cooldown:
+      default-days: 7
+    groups:
+      actions:
+        patterns: ["*"]
+    commit-message:
+      prefix: ci
+    labels:
+      - dependencies
+      - github-actions
+
+  # Package dependencies (root package.json + lockfile).
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 10
+    cooldown:
+      default-days: 7
+    groups:
+      dev-dependencies:
+        dependency-type: development
+        update-types: ["minor", "patch"]
+      prod-dependencies:
+        dependency-type: production
+        update-types: ["minor", "patch"]
+    commit-message:
+      prefix: build
+      # Emits build(deps): / build(deps-dev):. Releases still need a changeset.
+      include: scope
+    labels:
+      - dependencies
